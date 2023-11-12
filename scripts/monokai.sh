@@ -31,6 +31,7 @@ main()
   white='#f8f8f2'
   black='#2d2a2e'
   gray='#727072'
+  dblue='#282c34'
   red='#ff6188'
   green='#a9dc76'
   yellow='#ffd866'
@@ -111,12 +112,12 @@ main()
   tmux set-option -g message-style "bg=${gray},fg=${white}"
 
   # status bar
-  tmux set-option -g status-style "bg=${gray},fg=${white}"
+  tmux set-option -g status-style "bg=${dblue},fg=${white}"
 
   # Status left
   if $show_powerline; then
     tmux set-option -g status-left "#[fg=${green},bg=${black}]#{?client_prefix,#[fg=${yellow}],}#[bg=${green},fg=${black},bold]#{?client_prefix,#[bg=${yellow}],} ${left_icon} #[fg=${green},bg=${gray}]#{?client_prefix,#[fg=${green}],}${left_sep}"
-    powerbg=${gray}
+    powerbg=${dblue}
   else
     tmux set-option -g status-left "#[bg=${green},fg=${black},bold]#{?client_prefix,#[bg=${green}],} ${left_icon} "
   fi
@@ -217,7 +218,7 @@ main()
 
   # Window option
   if $show_powerline; then
-    tmux set-window-option -g window-status-current-format "#[bg=${black},fg=${gray}]${left_sep} #[fg=${green},bg=${black}]#I #W${current_flags} #[bg=${gray},fg=${black}]${left_sep}"
+    tmux set-window-option -g window-status-current-format "#[bg=${black},fg=${gray}]${left_sep} #[fg=${green},bg=${black}]#I #W${current_flags} #[bg=${dblue},fg=${black}]${left_sep}"
   else
     tmux set-window-option -g window-status-current-format "#[fg=${black},bg=${black}] #I #W${current_flags} "
   fi
